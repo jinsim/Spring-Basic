@@ -14,7 +14,7 @@ public class Order {
     }
 
     // 계산 로직
-    private int calculatePrice() {
+    public int calculatePrice() {
         return itemPrice - discountPrice;
     }
 
