@@ -7,7 +7,7 @@ import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 // JUnit5 부터는 클래스명과 메소드명에 public 안붙여도 됨
-public class ApplicationContextInfoTest {
+class ApplicationContextInfoTest {
     // AnnotationConfigApplicationContext를 ac로 줄여 사용함.
     AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
 
