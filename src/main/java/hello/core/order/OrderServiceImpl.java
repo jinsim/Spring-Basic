@@ -28,4 +28,9 @@ public class OrderServiceImpl implements OrderService{
 
         return new Order(memberId, itemName, itemPrice, discountPrice);
     }
+
+    // 싱글톤이 깨지는 지를 확인하기 위한 테스트 용도
+    public MemberRepository getMemberRepository() {
+        return memberRepository;
+    }
 }
