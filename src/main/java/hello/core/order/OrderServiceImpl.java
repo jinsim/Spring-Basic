@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 // 캄포넌트 등록을 위해
 @Component
 // final이 적용된 필드를 파라미터로 갖는 생성자를 만들어준다.
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService{
 
     // DIP 위반
@@ -38,13 +38,12 @@ public class OrderServiceImpl implements OrderService{
     private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
 
-//    @Autowired  // 생성자가 하나면 생략 가능하다.
-/*  // @RequiredArgsConstructor가 만들어준다.
+    @Autowired  // 생성자가 하나면 생략 가능하다.
+    // @RequiredArgsConstructor가 만들어준다.
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
-*/
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
