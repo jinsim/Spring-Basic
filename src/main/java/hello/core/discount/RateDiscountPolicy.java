@@ -1,5 +1,6 @@
 package hello.core.discount;
 
+import hello.core.annotaion.MainDiscountPolicy;
 import hello.core.member.Grade;
 import hello.core.member.Member;
 import org.springframework.context.annotation.Primary;
@@ -7,7 +8,8 @@ import org.springframework.stereotype.Component;
 
 // 캄포넌트 등록을 위해
 @Component
-@Primary
+//@Primary
+@MainDiscountPolicy
 public class RateDiscountPolicy implements DiscountPolicy {
 
     private int discountPercent = 10;
