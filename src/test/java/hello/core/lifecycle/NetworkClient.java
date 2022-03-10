@@ -1,5 +1,9 @@
 package hello.core.lifecycle;
 
+// javax로 시작하면, 자바 진영에서 공식적으로 지원하는 것.
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 public class NetworkClient {
 
     private String url;
@@ -26,12 +30,14 @@ public class NetworkClient {
         System.out.println("close = " + url);
     }
 
+    @PostConstruct
     public void init() throws Exception {
         System.out.println("NetworkClient.init");
         connect();
         call("초기화 연결 메시지");
     }
 
+    @PreDestroy
     public void close() throws Exception {
         System.out.println("NetworkClient.close");
         disconnect();
