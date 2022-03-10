@@ -24,7 +24,7 @@ public class BeanLifeCycleTest {
     static class LifeCycleConfig {
 
         // 스프링 빈이 생성이 되고, 호출된 결과물이 스프링 빈으로 등록이 될 것임.
-        @Bean
+        @Bean(initMethod = "init", destroyMethod = "close") // 시작시, 종료시 호출될 메소드 명을 적어놓는다.
         public NetworkClient networkClient() {
             NetworkClient networkClient = new NetworkClient();
             networkClient.setUrl("http://hello-spring.dev");
