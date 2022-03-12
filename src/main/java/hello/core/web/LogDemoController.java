@@ -15,9 +15,9 @@ import javax.servlet.http.HttpServletRequest;
 public class LogDemoController {
 
     private final LogDemoService logDemoService;
-//    private final MyLogger myLogger; // request 스코프
+    private final MyLogger myLogger; // request 스코프
     // MyLogger를 주입받는 것이 아니라, MyLogger를 찾을 수 있는 DL할 수 있는 애가 주입됨. 의존관계 주입시점에 주입받아도 됨.
-    private final ObjectProvider<MyLogger> myLoggerProvider;
+//    private final ObjectProvider<MyLogger> myLoggerProvider;
 
     @RequestMapping("log-demo") // log-demo 요청이 오면 실행
     @ResponseBody // 뷰 화면 없이 문자를 바로 반환
@@ -26,7 +26,10 @@ public class LogDemoController {
         // 고객이 어떤 URL로 요청했는지 알 수 있다.
         String requestURL = request.getRequestURI().toString();
 
-        MyLogger myLogger = myLoggerProvider.getObject();
+        // 프록시에 대한 결과가 어떻게 나오는지 확인. 
+        System.out.println("myLogger = " + myLogger.getClass());
+
+//        MyLogger myLogger = myLoggerProvider.getObject();
 
         // request 스코프에 url 정보를 넣는다.
         myLogger.setRequestURL(requestURL);
